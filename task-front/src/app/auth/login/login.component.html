@@ -1,0 +1,48 @@
+<div class="main-section">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <section class="login-section">
+        <form [formGroup]="loginForm" novalidate>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="email" formControlName="email" [(ngModel)]="cred.email" required >
+            </mat-form-field>
+            <span class="error-block" *ngIf="loginForm.controls['email'].errors && loginForm.controls['email'].touched">
+              this field is required
+            </span>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" placeholder="password" type="password" [(ngModel)]="cred.password" required >
+            </mat-form-field>
+            <span class="error-block" *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].touched">
+              this field is required
+            </span>
+          </div>
+        </form>
+        <button mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="emailLogin()">
+          Login
+        </button>
+      </section>
+      <section class="separator">
+        Or Login using
+      </section>
+      <section class="social-section">
+        <button mat-raised-button (click)="googleLogin()">
+          <img src="assets/images/google-logo.png" height="24px" width="24px">
+        </button>
+        <button mat-raised-button (click)="facebookLogin()">
+          <img src="assets/images/logo-facebook.png" height="24px" width="24px">
+        </button>
+      </section>
+      <section class="signup-section">
+        signup <a routerLink="/signup">&nbsp;here</a>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>

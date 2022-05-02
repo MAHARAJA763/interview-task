@@ -1,0 +1,75 @@
+<div class="main-section">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Signup</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <section class="login-section">
+        <form [formGroup]="signupForm" novalidate>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstName" placeholder="first name" [(ngModel)]="signupUser.firstName" >
+            </mat-form-field>
+            <span class="error-block" *ngIf="signupForm.controls['firstName'].errors && signupForm.controls['firstName'].touched">
+              this field is required
+            </span>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName" placeholder="last name" [(ngModel)]="signupUser.lastName" >
+            </mat-form-field>
+            <span class="error-block" *ngIf="signupForm.controls['lastName'].errors && signupForm.controls['lastName'].touched">
+              this field is required
+            </span>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="userName" placeholder="username" [(ngModel)]="signupUser.userName" >
+            </mat-form-field>
+            <span class="error-block" *ngIf="signupForm.controls['userName'].errors && signupForm.controls['userName'].touched">
+              this field is required
+            </span>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" placeholder="email" [(ngModel)]="signupUser.email" >
+            </mat-form-field>
+            <span class="error-block" *ngIf="signupForm.controls['email'].errors && signupForm.controls['email'].touched">
+              this field is required
+            </span>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" placeholder="password" type="password" [(ngModel)]="signupUser.password" >
+            </mat-form-field>
+            <span class="error-block" *ngIf="signupForm.controls['password'].errors && signupForm.controls['password'].touched">
+              this field is required
+            </span>
+          </div>
+        </form>
+        <button mat-raised-button color="primary" [disabled]="!signupForm.valid" (click)="emailSignup()">
+          Signup
+        </button>
+      </section>
+      <section class="separator">
+        Or Signup using
+      </section>
+      <section class="social-section">
+        <button mat-raised-button (click)="googleSignup()">
+          <img src="assets/images/google-logo.png" height="24px" width="24px">
+        </button>
+        <button mat-raised-button (click)="facebookSignup()">
+          <img src="assets/images/logo-facebook.png" height="24px" width="24px">
+        </button>
+      </section>
+      <section class="signup-section">
+        login <a routerLink="/login">&nbsp;here</a>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>

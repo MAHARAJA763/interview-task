@@ -1,0 +1,27 @@
+<div class="main-section">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Dashboard</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <section class="user-section">
+        <div>
+          welcome {{user.userName}}
+        </div>
+        <div>
+          <button mat-raised-button color="secondary" (click)="logout()">
+            logout
+          </button>
+        </div>
+      </section>
+      <section class="separator">
+        <hr>
+      </section>
+      <section class="social-section" *ngIf="!user.isPro">
+        <button mat-raised-button color="primary" (click)="checkout()">
+          pay subscription fee Rs.1
+        </button>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>
